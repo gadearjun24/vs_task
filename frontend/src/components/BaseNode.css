@@ -1,0 +1,184 @@
+/* Base Node Container */
+
+.base-node {
+  /* Card Appearance */
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 200px;
+  height: auto !important;
+}
+
+/* hover effect on base node -> changes border color */
+.base-node:hover {
+  border-color: #a5b4fc;
+}
+
+.base-node.selected {
+  border-color: #6366f1;
+}
+
+/* Title Section */
+.base-node_title {
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  border-radius: 12px 12px 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.base-node_title span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+}
+
+/* Content Area */
+
+.base-node_content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* global childrens styling */
+
+/* Labels */
+.base-node_content label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: default;
+}
+
+/* Inputs & Selects */
+.base-node_content input,
+.base-node_content select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  margin: 0;
+
+  background-color: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  font-size: 13px;
+  color: #334155;
+
+  outline: none;
+}
+
+/* Focus State for Inputs */
+.base-node_content input:focus,
+.base-node_content select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Input Placeholder */
+.base-node_content input::placeholder {
+  color: #94a3b8;
+}
+
+/* ReactFlow Handles */
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border: 2px solid #64748b;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* Handle Hover/Active */
+.react-flow__handle:hover {
+  background-color: #6366f1;
+  border-color: #6366f1;
+  transform: scale(1.2);
+  transition: transform 0.1s;
+}
+
+.base-node_handle {
+  background: #fff;
+  border: 2px solid #6366f1;
+}
+
+/* 
+
+*/
+.input-container {
+  position: relative;
+  width: 100%;
+  padding: 4px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.input-container:focus-within {
+  background: #fff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.text-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1e293b;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  display: block;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.text-input::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* Hide scrollbar for Chrome/Safari during expansion */
+.text-input::-webkit-scrollbar {
+  width: 4px;
+}
+
+.text-input::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+
+.base-node_delete {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  color: #444;
+}
+
+.base-node_delete:hover {
+  color: red;
+}

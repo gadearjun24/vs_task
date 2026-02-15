@@ -1,0 +1,97 @@
+.pipeline-toolbar {
+  padding: 8px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pipeline-toolbar_container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.toolbar-header {
+  border-right: 1px solid #e2e8f0;
+  padding-right: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-tag {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  background: #f1f5f9;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.draggable-nodes-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 0 10px 0;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.draggable-nodes-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+
+.draggable-nodes-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.draggable-nodes-wrapper::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.draggable-nodes-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+.draggable-nodes-wrapper > div {
+  flex: 0 0 auto;
+  cursor: grab;
+  min-width: 90px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  transition: all 0.2s ease;
+  user-select: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.draggable-nodes-wrapper > div:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+  background: #f5f3ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1);
+}
+
+.draggable-nodes-wrapper > div:active {
+  cursor: grabbing;
+  transform: scale(0.96);
+}
