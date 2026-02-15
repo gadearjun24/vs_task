@@ -1,37 +1,27 @@
-// // submit.js
-
-// export const SubmitButton = () => {
-
-//     return (
-//         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-//             <button type="submit">Submit</button>
-//         </div>
-//     );
-// }
-
 import { useStore } from "./store";
+
+// const BACKEND_URL = "http://localhost:8000";
+const BACKEND_URL =
+  "https://8000-firebase-vstask-1771132772375.cluster-va5f6x3wzzh4stde63ddr3qgge.cloudworkstations.dev";
 
 export const SubmitButton = () => {
   const nodes = useStore((state) => state.nodes);
   const edges = useStore((state) => state.edges);
 
-    console.log({ nodes, edges });
+  console.log({ nodes, edges });
 
   const onSubmit = async () => {
     try {
-      const response = await fetch(
-        "https://8000-firebase-vstask-1771132772375.cluster-va5f6x3wzzh4stde63ddr3qgge.cloudworkstations.dev/pipelines/parse",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            nodes,
-            edges,
-          }),
-        }
-      );
+      const response = await fetch(`${BACKEND_URL}/pipelines/parse`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nodes,
+          edges,
+        }),
+      });
 
       const result = await response.json();
 
