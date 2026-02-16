@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
 import { TextCursorInput } from "lucide-react";
+import { NodeField } from "../components/NodeField";
 
 export const InputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(
@@ -22,17 +23,15 @@ export const InputNode = ({ id, data }) => {
         },
       ]}
     >
-      <label>
-        Name:
+      <NodeField label={"Name"}>
         <input
           type="text"
           value={currName}
           onChange={(e) => setCurrName(e.target.value)}
         />
-      </label>
+      </NodeField>
 
-      <label>
-        Type:
+      <NodeField label={"Type"}>
         <select
           value={inputType}
           onChange={(e) => setInputType(e.target.value)}
@@ -40,7 +39,7 @@ export const InputNode = ({ id, data }) => {
           <option value="Text">Text</option>
           <option value="File">File</option>
         </select>
-      </label>
+      </NodeField>
     </BaseNode>
   );
 };

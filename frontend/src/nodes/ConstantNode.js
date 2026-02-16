@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
 import { Anchor } from "lucide-react";
+import { NodeField } from "../components/NodeField";
 
 export const ConstantNode = ({ id, data }) => {
   const [name, setName] = useState(
@@ -24,25 +25,23 @@ export const ConstantNode = ({ id, data }) => {
       ]}
     >
       {/* Name */}
-      <label>
-        Name:
+      <NodeField label={"Name"}>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-      </label>
+      </NodeField>
 
       {/* Value */}
-      <label>
-        Value:
+      <NodeField label={"Value"}>
         <input
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="You are a doctor..."
         />
-      </label>
+      </NodeField>
 
       <div style={{ fontSize: "11px" }}>
         Outputs a named static value (prompt/config)

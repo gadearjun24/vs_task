@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
 import { Split } from "lucide-react";
+import { NodeField } from "../components/NodeField";
 
 export const ConditionNode = ({ id, data }) => {
   const [condition, setCondition] = useState(data?.condition || "true");
@@ -18,7 +19,6 @@ export const ConditionNode = ({ id, data }) => {
           id: `${id}-input`,
           ariaLabel: "Condition Input",
         },
-
         // True path
         {
           type: "source",
@@ -27,7 +27,6 @@ export const ConditionNode = ({ id, data }) => {
           style: { top: "30%" },
           ariaLabel: "Condition True",
         },
-
         // False path
         {
           type: "source",
@@ -38,14 +37,13 @@ export const ConditionNode = ({ id, data }) => {
         },
       ]}
     >
-      <label>
-        Condition:
+      <NodeField label="Condition">
         <input
           type="text"
           value={condition}
           onChange={(e) => setCondition(e.target.value)}
         />
-      </label>
+      </NodeField>
     </BaseNode>
   );
 };

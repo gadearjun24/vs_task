@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useUpdateNodeInternals, useStore } from "reactflow";
-import { FileText, HelpCircle, Plus, Maximize2 } from "lucide-react";
+import { FileText } from "lucide-react";
 import { AutoGrowTextarea } from "../components/AutoGrowTextarea";
 import { BaseNode } from "../components/BaseNode";
 
@@ -75,7 +75,6 @@ export const TextNode = ({ id, data }) => {
   return (
     <BaseNode nodeId={id} title="Text" icon={FileText} handles={handles}>
       {/* Input Label Row */}
-      <label>Text: </label>
       <AutoGrowTextarea
         value={currText}
         maxHeight={250}

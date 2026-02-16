@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
 import { ExternalLink } from "lucide-react";
+import { NodeField } from "../components/NodeField";
 
 export const OutputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(
@@ -22,17 +23,15 @@ export const OutputNode = ({ id, data }) => {
         },
       ]}
     >
-      <label>
-        Name:
+      <NodeField label={"Name"}>
         <input
           type="text"
           value={currName}
           onChange={(e) => setCurrName(e.target.value)}
         />
-      </label>
+      </NodeField>
 
-      <label>
-        Type:
+      <NodeField label={"Type"}>
         <select
           value={outputType}
           onChange={(e) => setOutputType(e.target.value)}
@@ -40,7 +39,7 @@ export const OutputNode = ({ id, data }) => {
           <option value="Text">Text</option>
           <option value="File">Image</option>
         </select>
-      </label>
+      </NodeField>
     </BaseNode>
   );
 };

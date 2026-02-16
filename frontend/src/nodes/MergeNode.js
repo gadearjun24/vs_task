@@ -1,6 +1,24 @@
 import React, { useState, useMemo } from "react";
 import { BaseNode } from "../components/BaseNode";
 import { Merge } from "lucide-react";
+import { NodeField } from "../components/NodeField";
+
+const handleClampedNumberChange = ({ event, setValue, min, max }) => {
+  const raw = event.target.value;
+
+  // Allow empty while typing
+  if (raw === "") {
+    setValue("");
+    return;
+  }
+
+  let num = Number(raw);
+  if (Number.isNaN(num)) return;
+
+  // Clamp between min and max
+  num = Math.min(max, Math.max(min, num));
+  setValue(num);
+};
 
 export const MergeNode = ({ id, data }) => {
   const [inputCount, setInputCount] = useState(data?.inputCount || 2);
@@ -30,16 +48,22 @@ export const MergeNode = ({ id, data }) => {
 
   return (
     <BaseNode icon={Merge} nodeId={id} title="Merge" handles={handles}>
-      <label>
-        Inputs:
+      <NodeField label={"Inputs"}>
         <input
           type="number"
-          min={1}
+          min={2}
           max={10}
           value={inputCount}
-          onChange={(e) => setInputCount(Math.max(1, Number(e.target.value)))}
+          onChange={(e) => {
+            handleClampedNumberChange({
+              event: e,
+              setValue: setInputCount,
+              min: 2,
+              max: 10,
+            });
+          }}
         />
-      </label>
+      </NodeField>
 
       <div style={{ fontSize: "11px" }}>
         Merges multiple inputs into a single output

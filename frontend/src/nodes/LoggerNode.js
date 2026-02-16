@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
 import { Terminal } from "lucide-react";
+import { NodeField } from "../components/NodeField";
 
 export const LoggerNode = ({ id, data }) => {
   const [logLabel, setLogLabel] = useState(data?.label || "Logger");
@@ -19,14 +20,13 @@ export const LoggerNode = ({ id, data }) => {
         },
       ]}
     >
-      <label>
-        Label:
+      <NodeField label={"Label"}>
         <input
           type="text"
           value={logLabel}
           onChange={(e) => setLogLabel(e.target.value)}
         />
-      </label>
+      </NodeField>
 
       <div style={{ fontSize: "11px", color: "#555" }}>
         Logs incoming data for debugging
