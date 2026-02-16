@@ -179,7 +179,18 @@ Is DAG: Yes / No
 
 ---
 
-## 🧩 Node Design – BaseNode
+#### `frontend/src/components/`
+
+This directory contains reusable, generic components.
+
+- **`BaseNode.js`**:
+  - The most critical component for custom nodes. It acts as a template for all other nodes.
+  - It provides a consistent structure: a title bar with an icon and delete button, a content area, and React Flow handles.
+  - It accepts `title`, `icon`, `nodeId`, and an array of `handles` as props.
+  - The `children` prop allows any custom content to be rendered inside the node.
+- **`AutoGrowTextarea.js`**: A simple textarea component that automatically adjusts its height based on the content.
+
+## – BaseNode
 
 - All nodes use a shared **BaseNode**
 - Handles layout, styling, and delete logic
@@ -188,7 +199,29 @@ Is DAG: Yes / No
 Example usage:
 
 ```jsx
-<BaseNode nodeId={id} title="Text" width={280} height={120} handles={handles}>
+<BaseNode
+  nodeId={id}
+  icon={IconName}
+  title="Text"
+  width={280}
+  height={120}
+  handles={[handles]}
+>
   <AutoGrowTextarea />
 </BaseNode>
 ```
+
+#### `frontend/src/nodes/`
+
+This directory contains all the specific custom node components. Each node is built on top of the `BaseNode` component.
+
+- **`inputNode.js`, `outputNode.js`**: Simple nodes that represent the start and end points of a pipeline.
+- **`textNode.js`**: A node with a textarea that allows for dynamic variable extraction. It parses text for `{{variable}}` patterns and automatically creates corresponding input handles.
+- **`llmNode.js`**: Represents a Large Language Model step in the pipeline.
+- **`ConditionNode.js`**: A node with a dropdown to represent a conditional branch. It has "true" and "false" output handles.
+- **`MergeNode.js`**: A node that can merge multiple inputs into a single output. It has a numeric input to dynamically change the number of input handles.
+- **`ConstantNode.js`**: Allows defining a named constant with a specific value.
+- **`LoggerNode.js`**: A simple node for logging purposes.
+- **`NoteNode.js`**: A node for adding comments or notes to the pipeline canvas.
+
+---
