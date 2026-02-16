@@ -19,6 +19,7 @@ export const ConstantNode = ({ id, data }) => {
           type: "source",
           position: "Right",
           id: `${id}-value`,
+          ariaLabel: "Constant Value",
         },
       ]}
     >

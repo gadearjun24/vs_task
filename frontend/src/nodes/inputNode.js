@@ -18,6 +18,7 @@ export const InputNode = ({ id, data }) => {
           type: "source",
           position: "Right",
           id: `${id}-value`,
+          ariaLabel: "Input Value",
         },
       ]}
     >

@@ -49,19 +49,6 @@ vs_task/
 | Graph Logic      | Kahn’s Algorithm  |
 | API Format       | JSON              |
 
----
-
-## ✅ Prerequisites
-
-| Requirement | Version |
-| ----------- | ------- |
-| Node.js     | v16+    |
-| npm         | Latest  |
-| Python      | 3.10+   |
-| pip         | Latest  |
-
----
-
 ## 🖥️ Run Backend (FastAPI)
 
 ### 1️⃣ Navigate to backend

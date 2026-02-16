@@ -11,6 +11,7 @@ export const MergeNode = ({ id, data }) => {
       type: "target",
       position: "Left",
       id: `${id}-input-${index + 1}`,
+      ariaLabel: `Input ${index + 1}`,
       style: {
         top: `${((index + 1) / (inputCount + 1)) * 100}%`,
       },
@@ -23,6 +24,7 @@ export const MergeNode = ({ id, data }) => {
       type: "source",
       position: "Right",
       id: `${id}-output`,
+      ariaLabel: "Merged Output",
     },
   ];
 

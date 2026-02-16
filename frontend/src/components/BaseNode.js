@@ -41,6 +41,7 @@ export const BaseNode = ({
           id={h.id}
           className="base-node_handle"
           style={{ ...h.style }}
+          title={h.ariaLabel}
         />
       ))}
     </div>

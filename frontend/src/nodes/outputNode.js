@@ -18,6 +18,7 @@ export const OutputNode = ({ id, data }) => {
           type: "target",
           position: "Left",
           id: `${id}-value`,
+          ariaLabel: "Output Value",
         },
       ]}
     >

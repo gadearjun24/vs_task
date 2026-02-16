@@ -18,6 +18,7 @@ export const NoteNode = ({ id, data }) => {
           type: "target",
           position: "Left",
           id: `${id}-input`,
+          ariaLabel: "Note Input",
         },
       ]}
       width={220}

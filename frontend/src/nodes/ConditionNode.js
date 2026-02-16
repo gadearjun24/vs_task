@@ -16,6 +16,7 @@ export const ConditionNode = ({ id, data }) => {
           type: "target",
           position: "Left",
           id: `${id}-input`,
+          ariaLabel: "Condition Input",
         },
 
         // True path
@@ -24,6 +25,7 @@ export const ConditionNode = ({ id, data }) => {
           position: "Right",
           id: `${id}-true`,
           style: { top: "30%" },
+          ariaLabel: "Condition True",
         },
 
         // False path
@@ -32,6 +34,7 @@ export const ConditionNode = ({ id, data }) => {
           position: "Right",
           id: `${id}-false`,
           style: { top: "70%" },
+          ariaLabel: "Condition False",
         },
       ]}
     >

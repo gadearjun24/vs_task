@@ -58,6 +58,7 @@ export const TextNode = ({ id, data }) => {
       style: {
         top: `${((index + 1) / (variables.length + 1)) * 100}%`,
       },
+      ariaLabel: `Variable: ${variable}`,
     }));
 
     return [

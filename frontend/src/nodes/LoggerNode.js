@@ -15,6 +15,7 @@ export const LoggerNode = ({ id, data }) => {
           type: "target",
           position: "Left",
           id: `${id}-input`,
+          ariaLabel: "Logger Input",
         },
       ]}
     >
