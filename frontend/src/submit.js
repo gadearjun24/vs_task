@@ -1,4 +1,5 @@
 import { useStore } from "./store";
+import "./submit.css"
 
 // const BACKEND_URL = "http://localhost:8000";
 const BACKEND_URL =
@@ -7,8 +8,6 @@ const BACKEND_URL =
 export const SubmitButton = () => {
   const nodes = useStore((state) => state.nodes);
   const edges = useStore((state) => state.edges);
-
-  console.log({ nodes, edges });
 
   const onSubmit = async () => {
     try {
@@ -39,8 +38,10 @@ Is DAG: ${result.is_dag ? "Yes ✅" : "No ❌"}`
   };
 
   return (
-    <div style={{ padding: 10 }}>
-      <button onClick={onSubmit}>Submit Pipeline</button>
+    <div className="pipeline-submit-container">
+      <button className="submit-button" onClick={onSubmit}>
+        Submit Pipeline
+      </button>
     </div>
   );
 };

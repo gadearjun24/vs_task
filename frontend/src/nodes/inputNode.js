@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
+import { TextCursorInput } from "lucide-react";
 
 export const InputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(
@@ -9,6 +10,7 @@ export const InputNode = ({ id, data }) => {
 
   return (
     <BaseNode
+      icon={TextCursorInput}
       nodeId={id}
       title="Input"
       handles={[

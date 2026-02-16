@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
+import { Split } from "lucide-react";
 
 export const ConditionNode = ({ id, data }) => {
   const [condition, setCondition] = useState(data?.condition || "true");
 
   return (
     <BaseNode
+      icon={Split}
       nodeId={id}
       title="Condition"
       handles={[

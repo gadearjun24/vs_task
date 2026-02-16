@@ -5,6 +5,7 @@ export const AutoGrowTextarea = ({
   onChange,
   placeholder = "",
   maxHeight = 200,
+  minHeight = 50,
   className = "",
 }) => {
   const textAreaRef = useRef(null);
@@ -27,6 +28,7 @@ export const AutoGrowTextarea = ({
         value={value}
         onChange={onChange}
         rows={1}
+        style={{ minHeight, maxWidth: 250, minWidth: 250, maxHeight }}
       />
     </div>
   );

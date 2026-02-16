@@ -1,9 +1,33 @@
-// draggableNode.js
+import {
+  TextCursorInput,
+  Bot,
+  ExternalLink,
+  FileText,
+  Split,
+  Terminal,
+  Merge,
+  Anchor,
+  StickyNote,
+} from "lucide-react";
+
+// Icon mapping based on your types
+const ICONS = {
+  customInput: TextCursorInput,
+  llm: Bot,
+  customOutput: ExternalLink,
+  text: FileText,
+  conditionNode: Split,
+  loggerNode: Terminal,
+  mergeNode: Merge,
+  constantNode: Anchor,
+  noteNode: StickyNote,
+};
 
 export const DraggableNode = ({ type, label }) => {
+  const Icon = ICONS[type] || FileText;
+
   const onDragStart = (event, nodeType) => {
     const appData = { nodeType };
-    event.target.style.cursor = "grabbing";
     event.dataTransfer.setData(
       "application/reactflow",
       JSON.stringify(appData)
@@ -13,23 +37,12 @@ export const DraggableNode = ({ type, label }) => {
 
   return (
     <div
-      className={type}
+      className="draggable-node-item" // Use class instead of heavy inline styles
       onDragStart={(event) => onDragStart(event, type)}
-      onDragEnd={(event) => (event.target.style.cursor = "grab")}
-      style={{
-        cursor: "grab",
-        minWidth: "80px",
-        // height: '60px',
-        display: "flex",
-        alignItems: "center",
-        borderRadius: "8px",
-        backgroundColor: "#1C2536",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
       draggable
     >
-      <span style={{ color: "#fff" }}>{label}</span>
+      <Icon size={14} className="node-icon" />
+      <span>{label}</span>
     </div>
   );
 };

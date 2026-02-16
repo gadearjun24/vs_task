@@ -1,51 +1,46 @@
 import { Handle, Position } from "reactflow";
 import { useStore } from "../store";
+import { X } from "lucide-react"; // Import icons
 import "./BaseNode.css";
 
 export const BaseNode = ({
   title,
+  icon: Icon,
   handles = [],
   children,
-  width = 200,
-  height = 80,
-  nodeId, // 👈 REQUIRED to delete node
+  nodeId,
 }) => {
   const removeNode = useStore((state) => state.removeNode);
 
-  const onDelete = () => {
-    // Optional confirm (recommended)
-    if (window.confirm(`Delete "${title}" node?`)) {
-      removeNode(nodeId);
-    }
-  };
-
   return (
-    <div className="base-node" style={{ width, height }}>
-      {/* Title + Delete */}
+    <div className="base-node">
+      {/* Title Section */}
       <div className="base-node_title">
-        <span>{title}</span>
-
-        <button
-          className="base-node_delete"
-          onClick={onDelete}
-          title="Delete node"
-        >
-          X
-        </button>
+        <div className="title-left">
+          {Icon && <Icon size={16} strokeWidth={2.5} />}
+          <span>{title}</span>
+        </div>
+        <div className="title-actions">
+          <X
+            size={14}
+            className="action-icon delete"
+            onClick={() => removeNode(nodeId)}
+          />
+        </div>
       </div>
 
-      {/* Content */}
+      {/* Content Area */}
       <div className="base-node_content">{children}</div>
 
       {/* Handles */}
-      {handles.map((handle) => (
+      {handles.map((h) => (
         <Handle
-          key={handle.id}
-          type={handle.type}
-          position={Position[handle.position]}
-          id={handle.id}
+          key={h.id}
+          type={h.type}
+          position={Position[h.position]}
+          id={h.id}
           className="base-node_handle"
-          style={{ ...handle.style }}
+          style={{ ...h.style }}
         />
       ))}
     </div>

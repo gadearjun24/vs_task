@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
+import { Anchor } from "lucide-react";
 
 export const ConstantNode = ({ id, data }) => {
   const [name, setName] = useState(
@@ -10,6 +11,7 @@ export const ConstantNode = ({ id, data }) => {
 
   return (
     <BaseNode
+      icon={Anchor}
       nodeId={id}
       title="Constant"
       handles={[

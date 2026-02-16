@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
 import { AutoGrowTextarea } from "../components/AutoGrowTextarea";
+import { StickyNote } from "lucide-react";
 
 export const NoteNode = ({ id, data }) => {
   const [note, setNote] = useState(
@@ -9,6 +10,7 @@ export const NoteNode = ({ id, data }) => {
 
   return (
     <BaseNode
+      icon={StickyNote}
       nodeId={id}
       title="Note"
       handles={[

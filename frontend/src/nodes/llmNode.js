@@ -1,9 +1,11 @@
 import React from "react";
 import { BaseNode } from "../components/BaseNode";
+import { Bot } from "lucide-react";
 
 export const LLMNode = ({ id, data }) => {
   return (
     <BaseNode
+      icon={Bot}
       nodeId={id}
       title="LLM"
       handles={[

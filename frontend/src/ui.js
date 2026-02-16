@@ -106,9 +106,7 @@ export const PipelineUI = () => {
 
   const handleDeleteEdge = (event, edge) => {
     event.preventDefault();
-    if (window.confirm("Delete this edge?")) {
-      removeEdge(edge.id);
-    }
+    removeEdge(edge.id);
   };
 
   return (

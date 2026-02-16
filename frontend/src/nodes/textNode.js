@@ -1,7 +1,8 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { BaseNode } from "../components/BaseNode";
-import { AutoGrowTextarea } from "../components/AutoGrowTextarea";
 import { useUpdateNodeInternals, useStore } from "reactflow";
+import { FileText, HelpCircle, Plus, Maximize2 } from "lucide-react";
+import { AutoGrowTextarea } from "../components/AutoGrowTextarea";
+import { BaseNode } from "../components/BaseNode";
 
 const extractVariables = (text) => {
   const regex = /{{\s*([a-zA-Z_$][a-zA-Z0-9_$]*)\s*}}/g;
@@ -18,9 +19,8 @@ const extractVariables = (text) => {
 export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || "");
   const [variables, setVariables] = useState(data?.variables || []);
-
-  const edges = useStore((state) => state.edges);
   const updateNodeInternals = useUpdateNodeInternals();
+  const edges = useStore((state) => state.edges);
 
   /**
    * SAFE variable add + remove
@@ -72,18 +72,15 @@ export const TextNode = ({ id, data }) => {
   }, [variables, id]);
 
   return (
-    <BaseNode
-      nodeId={id}
-      title="Text"
-      width={280}
-      height={120}
-      handles={handles}
-    >
+    <BaseNode nodeId={id} title="Text" icon={FileText} handles={handles}>
+      {/* Input Label Row */}
+      <label>Text: </label>
       <AutoGrowTextarea
         value={currText}
+        maxHeight={250}
+        minHeight={50}
         onChange={(e) => setCurrText(e.target.value)}
-        maxHeight={160}
-        placeholder="Type text with {{variables}}..."
+        placeholder='Type "{{" to utilize variables'
       />
     </BaseNode>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { BaseNode } from "../components/BaseNode";
+import { Merge } from "lucide-react";
 
 export const MergeNode = ({ id, data }) => {
   const [inputCount, setInputCount] = useState(data?.inputCount || 2);
@@ -26,7 +27,7 @@ export const MergeNode = ({ id, data }) => {
   ];
 
   return (
-    <BaseNode nodeId={id} title="Merge" handles={handles}>
+    <BaseNode icon={Merge} nodeId={id} title="Merge" handles={handles}>
       <label>
         Inputs:
         <input

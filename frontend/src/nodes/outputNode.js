@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BaseNode } from "../components/BaseNode";
+import { ExternalLink } from "lucide-react";
 
 export const OutputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(
@@ -9,6 +10,7 @@ export const OutputNode = ({ id, data }) => {
 
   return (
     <BaseNode
+      icon={ExternalLink}
       nodeId={id}
       title="Output"
       handles={[
