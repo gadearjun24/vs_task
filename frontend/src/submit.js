@@ -2,9 +2,7 @@ import { useState } from "react";
 import { useStore } from "./store";
 import "./submit.css";
 
-// const BACKEND_URL = "http://localhost:8000";
-const BACKEND_URL =
-  "https://8000-firebase-vstask-1771132772375.cluster-va5f6x3wzzh4stde63ddr3qgge.cloudworkstations.dev";
+const BACKEND_URL = "http://localhost:8000";
 
 export const SubmitButton = () => {
   const nodes = useStore((state) => state.nodes);
